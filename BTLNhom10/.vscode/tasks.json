@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BTL_Nhom10.sln",
+                "${workspaceFolder}/BTLNhom10.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/BTL_Nhom10.sln",
+                "${workspaceFolder}/BTLNhom10.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/BTL_Nhom10.sln"
+                "${workspaceFolder}/BTLNhom10.sln"
             ],
             "problemMatcher": "$msCompile"
         }
