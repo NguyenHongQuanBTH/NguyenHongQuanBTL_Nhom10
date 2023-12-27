@@ -1,0 +1,72 @@
+@model BTLNhom10.Models.Luong
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Tạo dữ liệu mới</h1>
+
+
+<hr />
+<form asp-action="Upload" enctype="multipart/form-data">
+        <div class="row">
+            <label class="col-md-2">Import data from Excel:</label>
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+    </form>
+    <hr>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaNV" class="control-label"></label>
+                <input asp-for="MaNV" class="form-control" />
+                <span asp-validation-for="MaNV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenNV" class="control-label"></label>
+                <input asp-for="TenNV" class="form-control" />
+                <span asp-validation-for="TenNV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LuongCoBan" class="control-label"></label>
+                <input asp-for="LuongCoBan" class="form-control" />
+                <span asp-validation-for="LuongCoBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhuCap" class="control-label"></label>
+                <input asp-for="PhuCap" class="form-control" />
+                <span asp-validation-for="PhuCap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeSoLuong" class="control-label"></label>
+                <input asp-for="HeSoLuong" class="form-control" />
+                <span asp-validation-for="HeSoLuong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LuongChuyenCan" class="control-label"></label>
+                <input asp-for="LuongChuyenCan" class="form-control" />
+                <span asp-validation-for="LuongChuyenCan" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                @* <input type="submit" value="Create" class="btn btn-primary" /> *@
+                @* <input type="button" class="w3-button w3-black" value="Save" style="margin-top: 30px;"> *@
+                 <p><button class="w3-button w3-dark-grey" style="margin-top: 30px;">Lưu dữ liệu</button></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @* <a asp-action="Index" >Back to List</a> *@
+    @* <input type="button" class="w3-button w3-Dark-Grey" value="Back to list" style="margin-top: 20px;"> *@
+    <p><button class="w3-button w3-dark-grey" style="margin-top: 20px;">Quay lại</button></p>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+NguyenHongQuan-1921050489

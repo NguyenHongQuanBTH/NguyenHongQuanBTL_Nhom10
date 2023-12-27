@@ -2,6 +2,7 @@
 using BTLNhom10.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BTLNhom10.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    partial class ApplicationDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20231227121918_Table_Luongs")]
+    partial class Table_Luongs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -47,29 +50,6 @@ namespace BTLNhom10.Migrations
                     b.HasKey("MaNV");
 
                     b.ToTable("Banquanlys");
-                });
-
-            modelBuilder.Entity("BTLNhom10.Models.Chamcong", b =>
-                {
-                    b.Property<string>("MaNV")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("NgayNghiPhep")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SoGioCong")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SoNgayCong")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("TenNV")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("MaNV");
-
-                    b.ToTable("Chamcongs");
                 });
 
             modelBuilder.Entity("BTLNhom10.Models.Luong", b =>
@@ -129,34 +109,6 @@ namespace BTLNhom10.Migrations
                     b.HasKey("MaNV");
 
                     b.ToTable("Nhanviens");
-                });
-
-            modelBuilder.Entity("BTLNhom10.Models.Quanlyhoso", b =>
-                {
-                    b.Property<string>("MaNV")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhongBan")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("SoDienThoai")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SoTaiKhoan")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("TenNV")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("MaNV");
-
-                    b.ToTable("Quanlyhosos");
                 });
 #pragma warning restore 612, 618
         }

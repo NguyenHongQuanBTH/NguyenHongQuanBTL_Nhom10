@@ -7,7 +7,9 @@ namespace BTLNhom10.Data
         public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext>options) : base(options)
         {}
         public  DbSet <Nhanvien> Nhanvien { get; set; }
-         public  DbSet <Banquanly> Banquanly { get; set; }
-        
+        public  DbSet <Banquanly> Banquanly { get; set; }
+        public  DbSet <Luong> Luong { get; set; }
+        public  DbSet <Chamcong> Chamcong { get; set; }
+        public  DbSet <Quanlyhoso> Quanlyhoso { get; set; }
     }
 }

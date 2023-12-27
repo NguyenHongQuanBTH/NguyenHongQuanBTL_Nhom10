@@ -1,4 +1,4 @@
-@model IEnumerable<BTLNhom10.Models.Banquanly>
+@model IEnumerable<BTLNhom10.Models.Luong>
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
@@ -8,9 +8,9 @@
 
 <div class="w3-container ">
     <div class="w3-row w3-teal">
-        <h1 style="margin-left:30px;">Dữ liệu nhân viên</h1>
+        <h1 style="margin-left:30px;">Dữ liệu lương</h1>
         <a asp-action="Create" class="w3-btn w3-border w3-border-white w3-round w3-tiny w3-horver-blue" >Thêm bảng mới</a> 
-        <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Tải xuống</a>
+        <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Download</a>
 
     </div>
     <hr/>
@@ -21,20 +21,18 @@
                 @Html.DisplayNameFor(model => model.TenNV)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QueQuan)
+                @Html.DisplayNameFor(model => model.LuongCoBan)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tuoi)
+                @Html.DisplayNameFor(model => model.PhuCap)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioiTinh)
+                @Html.DisplayNameFor(model => model.HeSoLuong)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NamKN)
+                @Html.DisplayNameFor(model => model.LuongChuyenCan)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChucVu)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -48,32 +46,30 @@
                 @Html.DisplayFor(modelItem => item.TenNV)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.QueQuan)
+                @Html.DisplayFor(modelItem => item.LuongCoBan)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tuoi)
+                @Html.DisplayFor(modelItem => item.PhuCap)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GioiTinh)
+                @Html.DisplayFor(modelItem => item.HeSoLuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NamKN)
+                @Html.DisplayFor(modelItem => item.LuongChuyenCan)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChucVu)
-            </td>
+            
           
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaNV">Sửa</a> |
-                <a asp-action="Details" asp-route-id="@item.MaNV">Chi tiết</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaNV">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.MaNV">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNV">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNV">Delete</a>
             </td>
         </tr>
             }
         </tbody>
     </table>
       
- @using (Html.BeginForm("Index", "Banquanly", FormMethod.Get, new { id="form1"})){
+ @using (Html.BeginForm("Index", "Luong", FormMethod.Get, new { id="form1"})){
     <div class="row">
         <div class="col-md-11">
             @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page,
