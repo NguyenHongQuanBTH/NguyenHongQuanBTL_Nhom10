@@ -2,6 +2,7 @@
 using BTLNhom10.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BTLNhom10.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    partial class ApplicationDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20231228071617_Add_Quanlyhosos")]
+    partial class Add_Quanlyhosos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -140,17 +143,15 @@ namespace BTLNhom10.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("NgayLamViec")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("NgayLamViec")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("PhongBan")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SinhNgay")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("SinhNgay")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("SoDienThoai")
                         .IsRequired()
@@ -166,48 +167,6 @@ namespace BTLNhom10.Migrations
                     b.HasKey("MaNV");
 
                     b.ToTable("Quanlyhosos");
-                });
-
-            modelBuilder.Entity("BTLNhom10.Models.Tuyendung", b =>
-                {
-                    b.Property<string>("MaQL")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DoTuoi")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NamKN")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NgoaiHinh")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NgoaiNgu")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhongBan")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhongVan")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TrinhDo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("YeuCau")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("MaQL");
-
-                    b.ToTable("Tuyendungs");
                 });
 #pragma warning restore 612, 618
         }

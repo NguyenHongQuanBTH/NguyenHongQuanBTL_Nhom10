@@ -14,6 +14,14 @@ public class Quanlyhoso
     [Display(Name = "Họ và tên")]
     public string TenNV { get; set; }
 
+    [Required(ErrorMessage ="Ngày sinh không được bỏ trống")]
+    [Display(Name = "Ngày sinh")]
+    public string SinhNgay { get; set; }
+
+     [Required(ErrorMessage ="Ngày làm việc không được bỏ trống")]
+    [Display(Name = "Ngày làm việc")]
+    public string NgayLamViec { get; set; }
+     
      [Required(ErrorMessage ="Email không được bỏ trống")]
     [Display(Name = "Email")]
     public string Email { get; set; }

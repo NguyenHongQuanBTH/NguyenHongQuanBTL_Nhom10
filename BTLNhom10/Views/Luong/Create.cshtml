@@ -7,15 +7,15 @@
 <h1>Tạo dữ liệu mới</h1>
 
 
-<hr />
+<hr>
 <form asp-action="Upload" enctype="multipart/form-data">
-        <div class="row">
-            <label class="col-md-2">Import data from Excel:</label>
+        <div class="row form-control">
+            <label class="col-md-2">Mời nhập vào file Excel:</label>
             <input type="file" name="file" class="col-sm-4">
-            <input type="submit" value="Upload" class="btn btn-primary">
+            <input type="submit" value="Upload" class="btn btn-primary col-md-1">
         </div>
     </form>
-    <hr>
+    <hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">

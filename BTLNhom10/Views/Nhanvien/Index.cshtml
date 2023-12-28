@@ -8,31 +8,30 @@
 
 <div class="w3-container ">
     <div class="w3-row w3-teal">
-        <h1 style="margin-left:30px;">Dữ liệu nhân viên</h1>
-        <a asp-action="Create" class="w3-btn w3-border w3-border-white w3-round w3-tiny w3-horver-blue" >Thêm bảng mới</a> 
-        <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Download</a>
-
-    </div>
+        
+        <h2 class="w3-center w3-text" style=" font-family: Times New Roman; font-size:40px ">Dữ liệu nhân viên</h2>
+</div>
+    <a asp-action="Create" ><button  class="w3-button w3-btn w3-border-white w3-grey w3-horver-blue" style="margin-top: 20px;">Thêm bảng mới</button></a>
     <hr/>
-    <table class="table w3-panel w3-border w3-border-blue w3-panel w3-card" >
+    <table class="w3-table w3-panel w3-border w3-border-blue w3-panel w3-card" >
     <thead>
         <tr>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.TenNV)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.QueQuan)
             </th>
-            <th>
+            <th style="text-align: center;">
                 @Html.DisplayNameFor(model => model.Tuoi)
             </th>
-            <th>
+            <th style="text-align: center;">
                 @Html.DisplayNameFor(model => model.GioiTinh)
             </th>
-            <th>
+            <th style="text-align: center;">
                 @Html.DisplayNameFor(model => model.NamKN)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.ChucVu)
             </th>
             <th></th>
@@ -44,29 +43,29 @@
             {
                 
                 <tr>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.TenNV)
             </td>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.QueQuan)
             </td>
-            <td>
+            <td style="text-align: center;">
                 @Html.DisplayFor(modelItem => item.Tuoi)
             </td>
-            <td>
+            <td style="text-align: center;">
                 @Html.DisplayFor(modelItem => item.GioiTinh)
             </td>
-            <td>
+            <td style="text-align: center;">
                 @Html.DisplayFor(modelItem => item.NamKN)
             </td>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.ChucVu)
             </td>
           
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaNV">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MaNV">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaNV">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.MaNV" class="w3-button w3-teal">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNV" class="w3-button w3-teal">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNV" class="w3-button w3-teal">Xóa</a>
             </td>
         </tr>
             }
@@ -97,5 +96,9 @@
 </script>  
 
 </div>
+
+ <a asp-action="Download" ><button  class="w3-button w3-dark-grey" style="margin-top: 20px;">Tải xuống</button></a>
+
+
 
 NguyenHongQuan-1921050489

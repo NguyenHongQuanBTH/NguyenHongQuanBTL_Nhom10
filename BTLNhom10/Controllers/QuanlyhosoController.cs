@@ -56,7 +56,7 @@ namespace BTLNhom10.Controllers{
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind("MaNV, TenNV, Email, SoDienThoai, SoTaiKhoan, PhongBan")] Quanlyhoso quanlyhoso){
+        public async Task<IActionResult> Create ([Bind("MaNV, TenNV, SinhNgay, NgayLamViec, Email, SoDienThoai, SoTaiKhoan, PhongBan")] Quanlyhoso quanlyhoso){
             if(ModelState.IsValid){
                 _context.Add(quanlyhoso);
                 await _context.SaveChangesAsync();
@@ -79,7 +79,7 @@ namespace BTLNhom10.Controllers{
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(String id, [Bind("MaNV, TenNV, Email, SoDienThoai, SoTaiKhoan, PhongBan")] Quanlyhoso quanlyhoso){
+        public async Task<IActionResult> Edit(String id, [Bind("MaNV, TenNV, SinhNgay, NgayLamViec, Email, SoDienThoai, SoTaiKhoan, PhongBan")] Quanlyhoso quanlyhoso){
             if (id !=quanlyhoso.MaNV){
                 return NotFound();
             }
@@ -112,7 +112,7 @@ namespace BTLNhom10.Controllers{
             if (quanlyhoso ==  null){
                 return NotFound();
             }
-            return View();
+            return View(quanlyhoso);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -157,10 +157,12 @@ namespace BTLNhom10.Controllers{
                                     var ql = new Quanlyhoso();
                                     ql.MaNV = dt.Rows[i][0].ToString();
                                     ql.TenNV = dt.Rows[i][1].ToString();
-                                    ql.Email = dt.Rows[i][2].ToString();
-                                    ql.SoDienThoai = dt.Rows[i][3].ToString();
-                                    ql.SoTaiKhoan = Convert.ToInt32(dt.Rows[i][4].ToString());
-                                    ql.PhongBan = dt.Rows[i][5].ToString();
+                                    ql.SinhNgay = dt.Rows[i][2].ToString();
+                                    ql.NgayLamViec = dt.Rows[i][3].ToString();
+                                    ql.Email = dt.Rows[i][4].ToString();
+                                    ql.SoDienThoai = dt.Rows[i][5].ToString();
+                                    ql.SoTaiKhoan = Convert.ToInt32(dt.Rows[i][6].ToString());
+                                    ql.PhongBan = dt.Rows[i][7].ToString();
                                     
                                     _context.Add(ql);
                                 }

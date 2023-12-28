@@ -6,13 +6,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="w3-container ">
+@* <div class="w3-container ">
     <div class="w3-row w3-teal">
         <h1 style="margin-left:30px;">Dữ liệu chấm công</h1>
         <a asp-action="Create" class="w3-btn w3-border w3-border-white w3-round w3-tiny w3-horver-blue" >Thêm bảng mới</a> 
         <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Tải xuống</a>
 
-    </div>
+    </div> *@
+    <div class="w3-container ">
+    <div class="w3-row w3-teal">
+        
+        <h2 class="w3-center w3-text" style=" font-family: Times New Roman; font-size:40px ">Dữ liệu chấm công</h2>
+</div>
+    <a asp-action="Create" ><button  class="w3-button w3-btn w3-border-white w3-grey w3-horver-blue" style="margin-top: 20px;">Thêm bảng mới</button></a>
     <hr/>
     <table class="table w3-panel w3-border w3-border-blue w3-panel w3-card" >
     <thead>
@@ -54,9 +60,9 @@
             
           
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaNV">Sửa</a> |
-                <a asp-action="Details" asp-route-id="@item.MaNV">Chi tiết</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaNV">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.MaNV" class="w3-button w3-teal">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNV" class="w3-button w3-teal">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNV" class="w3-button w3-teal">Xóa</a>
             </td>
         </tr>
             }
@@ -87,5 +93,5 @@
 </script>  
 
 </div>
-
-NguyenHongQuan-1921050489
+<a asp-action="Download" ><button  class="w3-button w3-dark-grey" style="margin-top: 20px;">Tải xuống</button></a>
+<p style="margin-top: 200px;">NguyenHongQuan-1921050489</p>

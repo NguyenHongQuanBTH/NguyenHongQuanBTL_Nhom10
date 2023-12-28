@@ -112,7 +112,7 @@ namespace BTLNhom10.Controllers{
             if (chamcong ==  null){
                 return NotFound();
             }
-            return View();
+            return View(chamcong);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

@@ -1,0 +1,87 @@
+@model BTLNhom10.Models.Tuyendung
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Tạo dữ liệu mới</h1>
+
+
+<hr >
+<form asp-action="Upload" enctype="multipart/form-data">
+        <div class="row form-control">
+            <label class="col-md-2">Nhập vào file Excel: </label>
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary col-md-1">
+        </div>
+    </form>
+    <hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaQL" class="control-label"></label>
+                <input asp-for="MaQL" class="form-control" />
+                <span asp-validation-for="MaQL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhongBan" class="control-label"></label>
+                <input asp-for="PhongBan" class="form-control" />
+                <span asp-validation-for="PhongBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoTuoi" class="control-label"></label>
+                <input  asp-for="DoTuoi" class="form-control" />
+                <span asp-validation-for="DoTuoi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamKN" class="control-label"></label>
+                <input asp-for="NamKN" class="form-control" />
+                <span asp-validation-for="NamKN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrinhDo" class="control-label"></label>
+                <input  asp-for="TrinhDo" class="form-control" />
+                <span asp-validation-for="TrinhDo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgoaiHinh" class="control-label"></label>
+                <input  asp-for="NgoaiHinh" class="form-control" />
+                <span asp-validation-for="NgoaiHinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgoaiNgu" class="control-label"></label>
+                <input asp-for="NgoaiNgu" class="form-control" />
+                <span asp-validation-for="NgoaiNgu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhongVan" class="control-label"></label>
+                <input asp-for="PhongVan" class="form-control" />
+                <span asp-validation-for="PhongVan" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="YeuCau" class="control-label"></label>
+                <input asp-for="YeuCau" class="form-control" />
+                <span asp-validation-for="YeuCau" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                @* <input type="submit" value="Create" class="btn btn-primary" /> *@
+                @* <input type="button" class="w3-button w3-black" value="Save" style="margin-top: 30px;"> *@
+                 <p><button class="w3-button w3-dark-grey" style="margin-top: 30px;">Lưu dữ liệu</button></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @* <a asp-action="Index" >Back to List</a> *@
+    @* <input type="button" class="w3-button w3-Dark-Grey" value="Back to list" style="margin-top: 20px;"> *@
+    <p><button class="w3-button w3-dark-grey" style="margin-top: 10px;">Quay lại</button></p>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@* NguyenHongQuan-1921050489  *@

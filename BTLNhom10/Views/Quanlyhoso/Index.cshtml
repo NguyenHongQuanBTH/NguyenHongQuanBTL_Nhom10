@@ -1,4 +1,4 @@
-@model IEnumerable<BTLNhom10.Models.Quanlyhoso>
+@* @model IEnumerable<BTLNhom10.Models.Quanlyhoso>
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
@@ -19,6 +19,12 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.TenNV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SinhNgay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayLamViec)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -45,6 +51,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TenNV)
             </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.SinhNgay)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.NgayLamViec)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
@@ -59,9 +71,10 @@
             </td>
           
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaNV">Sửa</a> |
-                <a asp-action="Details" asp-route-id="@item.MaNV">Chi tiết</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaNV">Xóa</a>
+                <a><button asp-action="Edit" asp-route-id="@item.MaNV" class="w3-button w3-teal">Sửa</button></a> |
+                
+                <a><button asp-action="Details" asp-route-id="@item.MaNV" class="w3-button w3-teal">Chi tiết</button></a> |
+                <a><button asp-action="Delete" asp-route-id="@item.MaNV" class="w3-button w3-teal">Xóa</button></a>
             </td>
         </tr>
             }
@@ -93,4 +106,114 @@
 
 </div>
 
-NguyenHongQuan-1921050489
+NguyenHongQuan-1921050489 *@
+@model IEnumerable<BTLNhom10.Models.Quanlyhoso>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="w3-container ">
+    <div class="w3-row w3-teal">
+        
+        <h2 class="w3-center w3-text" style=" font-family: Times New Roman; font-size:40px ">Quản lý hồ sơ</h2>
+</div>
+    <a asp-action="Create" ><button  class="w3-button w3-btn w3-border-white w3-grey w3-horver-blue" style="margin-top: 20px;">Thêm bảng mới</button></a>
+    <hr/>
+    <table class="w3-table w3-panel w3-border w3-border-blue w3-panel w3-card" >
+    <thead>
+        <tr>
+            <th >
+                @Html.DisplayNameFor(model => model.TenNV)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.SinhNgay)
+            </th>
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.NgayLamViec)
+            </th>
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.SoDienThoai)
+            </th>
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.SoTaiKhoan)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.PhongBan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+            <td >
+                @Html.DisplayFor(modelItem => item.TenNV)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.SinhNgay)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.NgayLamViec)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.SoTaiKhoan)
+            </td>
+             <td >
+                @Html.DisplayFor(modelItem => item.PhongBan)
+            </td>
+          
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaNV" class="w3-button w3-teal">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNV" class="w3-button w3-teal">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNV" class="w3-button w3-teal">Xóa</a>
+            </td>
+        </tr>
+            }
+        </tbody>
+    </table>
+      
+ @using (Html.BeginForm("Index", "Nhanvien", FormMethod.Get, new { id="form1"})){
+    <div class="row">
+        <div class="col-md-11">
+            @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page,
+            pageSize= ViewBag.psize}), 
+            new X.PagedList.Web.Common.PagedListRenderOptions { LiElementClasses = new string[] {"page-item"}, 
+            PageClasses = new string[] { "page-link" }})
+        </div>
+        <div class="col-md-1">
+            @Html.DropDownList("pagesize", null, new {@class="form-select"})
+        </div>
+    </div>
+
+}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#pagesize").change(function(){
+            $("#form1").submit();
+        });
+    });
+</script>  
+
+</div>
+@* <p ><a style="margin-right: 1200px " asp-action="Download" class="w3-btn w3-border w3-border-green w3-round w3-right w3-tiny w3-horver-blue ">Tải xuống</a></p> *@
+ <a asp-action="Download" ><button  class="w3-button w3-dark-grey" style="margin-top: 20px;">Tải xuống</button></a>
+
+
+
+<p style="margin-top: 150px;">NguyenHongQuan-1921050489</p>

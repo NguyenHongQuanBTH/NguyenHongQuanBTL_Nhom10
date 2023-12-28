@@ -1,0 +1,118 @@
+@model IEnumerable<BTLNhom10.Models.Tuyendung>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+ <div class="w3-container ">
+    <div class="w3-row w3-teal w3-table">
+        <h1 style="margin-left:30px;">Dữ liệu tuyển dụng</h1>
+         <a asp-action="Create" class="w3-btn w3-border w3-border-white w3-round w3-tiny w3-horver-blue" >Thêm bảng mới</a> 
+          <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Tải xuống</a>
+
+    </div>
+    <hr/>
+    <table  class="w3-table w3-panel w3-border w3-border-blue w3-panel w3-card" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhongBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoTuoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamKN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrinhDo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgoaiHinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgoaiNgu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhongVan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YeuCau)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhongBan)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.DoTuoi)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.NamKN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrinhDo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgoaiHinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgoaiNgu)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.PhongVan)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.YeuCau)
+            </td>
+          
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaQL">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.MaQL">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaQL">Xóa</a>
+            </td>
+        </tr>
+            }
+        </tbody>
+    </table>
+      <a asp-action="Download" class="w3-btn w3-border w3-border-white w3-round w3-right w3-tiny w3-horver-blue">Tải xuống</a> 
+  
+ @using (Html.BeginForm("Index", "Tuyendung", FormMethod.Get, new { id="form1"})){
+    <div class="row">
+        <div class="col-md-11">
+            @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page,
+            pageSize= ViewBag.psize}), 
+            new X.PagedList.Web.Common.PagedListRenderOptions { LiElementClasses = new string[] {"page-item"}, 
+            PageClasses = new string[] { "page-link" }})
+        </div>
+        <div class="col-md-1">
+            @Html.DropDownList("pagesize", null, new {@class="form-select"})
+        </div>
+    </div>
+
+}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#pagesize").change(function(){
+            $("#form1").submit();
+        });
+    });
+</script>  
+
+</div>  
+  
+       
+
+NguyenHongQuan-1921050489

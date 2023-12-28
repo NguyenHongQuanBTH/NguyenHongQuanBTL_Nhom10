@@ -11,5 +11,8 @@ namespace BTLNhom10.Data
         public  DbSet <Luong> Luong { get; set; }
         public  DbSet <Chamcong> Chamcong { get; set; }
         public  DbSet <Quanlyhoso> Quanlyhoso { get; set; }
+        public  DbSet <Tuyendung> Tuyendung { get; set; }
     }
 }
+
+//NguyenHongQuan-1921050489

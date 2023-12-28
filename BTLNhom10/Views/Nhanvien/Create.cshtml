@@ -4,18 +4,21 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Tạo dữ liệu mới</h1>
+<div class="w3-row w3-teal col-md-2">
+    
+        <h2 class="w3-center w3-text" style=" font-family: Times New Roman; font-size:20px ">Thêm dữ liệu nhân viên</h2>
+</div>
 
 
-<hr />
+<hr >
 <form asp-action="Upload" enctype="multipart/form-data">
-        <div class="row">
-            <label class="col-md-2">Import data from Excel:</label>
+        <div class="row form-control">
+            <label class="col-md-2">Mời nhập vào file Excel:</label>
             <input type="file" name="file" class="col-sm-4">
-            <input type="submit" value="Upload" class="btn btn-primary">
+            <input type="submit" value="Upload" class="btn btn-primary col-sm-1" style="margin-left: -200px;">
         </div>
     </form>
-    <hr>
+    <hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -56,21 +59,23 @@
                 <span asp-validation-for="ChucVu" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @* <input type="submit" value="Create" class="btn btn-primary" /> *@
-                @* <input type="button" class="w3-button w3-black" value="Save" style="margin-top: 30px;"> *@
+               
                  <p><button class="w3-button w3-dark-grey" style="margin-top: 30px;">Lưu dữ liệu</button></p>
+                
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    @* <a asp-action="Index" >Back to List</a> *@
-    @* <input type="button" class="w3-button w3-Dark-Grey" value="Back to list" style="margin-top: 20px;"> *@
-    <p><button class="w3-button w3-dark-grey" style="margin-top: 20px;">Quay lại</button></p>
-</div>
+    <a asp-action="Index" ><button  class="w3-button w3-dark-grey" style="margin-top: 20px;">Quay lại</button></a>
 
+    
+    
+</div>
+ 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-NguyenHongQuan-1921050489
+
+<p style="margin-top: 40px;">NguyenHongQuan-1921050489</p>
